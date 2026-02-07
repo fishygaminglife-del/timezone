@@ -1,17 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>First Webstire</title>
+    <title>Time Zone</title>
     <link rel = "stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello WOrld</h1>
-    <p>This is my first paragraph</p>
-    <img src = "images/Black.png" alt ="A Black Screen">
-    <div class="box">
-        <h2>About Me</h2>
-        <p>This is a little section inside a box.</p>
+    <div class ="tptxt">
+        <a>Choose</a>
+        <a>Your</a>
+        <a>Zone</a>
     </div>
-    <button class="TheBut">Click Me</button>
+    <h1>Time Zone</h1>
+    <select class="timezone-select">
+        <option value="">Select a Time Zone</option>
+        <option value="Pacific/Midway"> UTC-11 - SST</option>
+        <option value="Pacific/Honolulu"> UTC-10 - HST</option>
+        <option value="America/Anchorage"> UTC-9 - AKST</option>
+        <option value="America/Los_Angeles"> UTC-8 - PST</option>
+        <option value="America/Denver"> UTC-7 - MST</option>
+        <option value="America/Chicago"> UTC-6 - CST</option>
+        <option value="America/New_York"> UTC-5 - EST</option>
+        <option value="America/Halifax"> UTC-4 - AST</option>
+        <option value="America/Argentina/Buenos_Aires"> UTC-3 - ART</option>
+        <option value="Atlantic/South_Georgia"> UTC-2 - GST</option>
+        <option value="Atlantic/Azores"> UTC-1 - AZOT</option>
+        <option value="UTC"> UTC+0 - GMT</option>
+        <option value="Europe/Paris"> UTC+1 - CET </option>
+        <option value="Europe/Athens"> UTC+2 - EET </option>
+        <option value="Europe/Moscow"> UTC+3 - MSK </option>
+        <option value="Asia/Dubai"> UTC+4 - GST </option>
+        <option value="Asia/Karachi"> UTC+5 - PKT </option>
+        <option value="Asia/Kolkata"> UTC+5:30 - IST </option>
+        <option value="Asia/Kathmandu"> UTC+5:45 - NPT </option>
+        <option value="Asia/Dhaka"> UTC+6 - BST </option>
+        <option value="Asia/Yangon"> UTC+6:30 - MMT </option>
+        <option value="Asia/Bangkok"> UTC+7 - ICT </option>
+        <option value="Asia/Shanghai"> UTC+8 - CST </option>
+        <option value="Asia/Tokyo"> UTC+9 - JST </option>
+        <option value="Australia/Adelaide"> UTC+9:30 - ACST </option>
+        <option value="Australia/Sydney"> UTC+10 - AEST </option>
+        <option value="Pacific/Noumea"> UTC+11 - NCT </option>
+        <option value="Pacific/Auckland"> UTC+12 - NZST </option>
+        <option value="Pacific/Chatham"> UTC+12:45 - CHAST </option>
+        <option value="Pacific/Tongatapu"> UTC+13 - TOT </option>
+        <option value="Pacific/Kiritimati">  UTC+14 - LINT </option>
+
+    </select>
+    <p id="local-label">Your Local Time:</p>    
+    <p id="local-time"></p>
+    <p id="zone-label">Selected Time Zone: </p>
+    <p id="zone-time"></p>    
+    <script>
+       const timezoneAbbr = {
+            "Pacific/Midway": "SST",
+            "Pacific/Honolulu": "HST",
+            "America/Anchorage": "AKST",
+            "America/Los_Angeles": "PST",
+            "America/Denver": "MST",
+            "America/Chicago": "CST",
+            "America/New_York": "EST",
+            "America/Halifax": "AST",
+            "America/Argentina/Buenos_Aires": "ART",
+            "Atlantic/South_Georgia": "GST",
+            "Atlantic/Azores": "AZOT",
+            "UTC": "GMT",
+            "Europe/Paris": "CET",
+            "Europe/Athens": "EET",
+            "Europe/Moscow": "MSK",
+            "Asia/Dubai": "GST",
+            "Asia/Karachi": "PKT",
+            "Asia/Kolkata": "IST",
+            "Asia/Kathmandu": "NPT",
+            "Asia/Dhaka": "BST",
+            "Asia/Yangon": "MMT",
+            "Asia/Bangkok": "ICT",
+            "Asia/Shanghai": "CST",
+            "Asia/Tokyo": "JST",
+            "Australia/Adelaide": "ACST",
+            "Australia/Sydney": "AEST",
+            "Pacific/Noumea": "NCT",
+            "Pacific/Auckland": "NZST",
+            "Pacific/Chatham": "CHAST",
+            "Pacific/Tongatapu": "TOT",
+            "Pacific/Kiritimati": "LINT"
+
+       }
+       
+       //show your local time
+        function showLocalTime() {
+            const now = new Date();
+            document.getElementById("local-time").textContent = 
+                now.toLocaleTimeString();
+        }
+        //show selected timezone
+        function showZoneTime() {
+            const zone = document.querySelector(".timezone-select").value;
+            //if nothing selected clear text
+            if (zone === "") {
+                document.getElementById("zone-time").textContent =""
+                return;
+            } 
+                const now = new Date();
+                document.getElementById("zone-label").textContent = 
+                    "Selected Time Zone (" + timezoneAbbr[zone] + " - " + zone +")"
+                document.getElementById("zone-time").textContent = 
+                    now.toLocaleTimeString("en-US", { timeZone: zone})
+        }
+        // update both clocks every second
+        setInterval(()=> {
+            showLocalTime();
+            showZoneTime();
+        }, 1000);
+
+        document.querySelector(".timezone-select")
+            .addEventListener("change", showZoneTime)
+    </script>
 </body>
 </html>
