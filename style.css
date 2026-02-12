@@ -49,24 +49,24 @@ img{
 #local-time {
     font-size: 50px;
     font-weight: bold;
-    color: rgba(74, 135, 150, 0.377);
+    color: rgba(0, 0, 0, 0.377);
     margin-bottom: 5px;
 }
 #zone-time {
     font-size: 50px;
     font-weight: bold;
-    color: rgba(74, 135, 150, 0.377);
+    color: rgba(0, 0, 0, 0.377);
     margin-bottom: 5px;
 }
 #local-label {
     font-size: 25px;
     font-weight: bold;
     color: rgba(255, 27, 38, 0.575);
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 #zone-label {
     font-size: 25px;
     font-weight: bold;
     color: rgba(255, 27, 38, 0.575);
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
