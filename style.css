@@ -50,23 +50,30 @@ img{
     font-size: 50px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.377);
-    margin-bottom: 5px;
+    margin-bottom: 1px;
 }
 #zone-time {
     font-size: 50px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.377);
-    margin-bottom: 5px;
+    margin-bottom: 1px;
 }
 #local-label {
     font-size: 25px;
     font-weight: bold;
     color: rgba(255, 27, 38, 0.575);
-    margin-bottom: 3px;
+    margin-bottom: 1px;
 }
 #zone-label {
     font-size: 25px;
     font-weight: bold;
     color: rgba(255, 27, 38, 0.575);
-    margin-bottom: 3px;
+    margin-bottom: 1px;
+}
+.time-zone-map {
+    width: 1000px; 
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
